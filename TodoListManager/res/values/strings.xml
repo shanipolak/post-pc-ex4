@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TodoListManagerActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="addButton">addButton</string>
+    <string name="addTask">Add</string>
+    <string name="delTask">Delete Item</string>
+    <string name="title_activity_add_new_todo_item">AddNewTodoItemActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="titleAdd">Add New Item</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="parseApplication">HHnijQyHwrQGCVtYUvRar7KIdowPFIQvRJZwFtVE</string>
+    <string name="clientKey">zdS1l6C1VjqvJleXuILdy6Ph51l195uB4xWkdYvq</string>
+
+</resources>
+

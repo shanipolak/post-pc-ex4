@@ -1,0 +1,108 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  Internal Error (javaClasses.cpp:129), pid=6484, tid=9076
+#  fatal error: Invalid layout of preloaded class
+#
+# JRE version: 7.0_17-b02
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (23.7-b01 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.sun.com/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000000000245d800):  JavaThread "Unknown thread" [_thread_in_vm, id=9076, stack(0x00000000025e0000,0x00000000026e0000)]
+
+Stack: [0x00000000025e0000,0x00000000026e0000]
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x000000000245d800 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=9076, stack(0x00000000025e0000,0x00000000026e0000)]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (10 events):
+Event: 0.016 loading class 0x000000000230fdc0 done
+Event: 0.016 loading class 0x00000000022d3200 done
+Event: 0.016 loading class 0x00000000022d31d0
+Event: 0.016 loading class 0x0000000002362300
+Event: 0.016 loading class 0x0000000002362300 done
+Event: 0.016 loading class 0x0000000002362340
+Event: 0.016 loading class 0x0000000002362340 done
+Event: 0.016 loading class 0x000000000893f840
+Event: 0.016 loading class 0x000000000893f840 done
+Event: 0.016 loading class 0x00000000022d31d0 done
+
+
+Dynamic libraries:
+0x000000013f710000 - 0x000000013f743000 	C:\Users\spolak\Documents\shani\AndroidDevelopement\adt-bundle-windows-x86_64-20130219\eclipse\jre\bin\javaw.exe
+0x0000000077c00000 - 0x0000000077da9000 	C:\Windows\SYSTEM32\ntdll.dll
+0x0000000077ae0000 - 0x0000000077bff000 	C:\Windows\system32\kernel32.dll
+0x000007fefdeb0000 - 0x000007fefdf1c000 	C:\Windows\system32\KERNELBASE.dll
+0x000007fefe8b0000 - 0x000007fefe98b000 	C:\Windows\system32\ADVAPI32.dll
+0x000007feffe70000 - 0x000007fefff0f000 	C:\Windows\system32\msvcrt.dll
+0x000007feff850000 - 0x000007feff86f000 	C:\Windows\SYSTEM32\sechost.dll
+0x000007fefe6a0000 - 0x000007fefe7cd000 	C:\Windows\system32\RPCRT4.dll
+0x00000000779e0000 - 0x0000000077ada000 	C:\Windows\system32\USER32.dll
+0x000007fefe130000 - 0x000007fefe197000 	C:\Windows\system32\GDI32.dll
+0x000007fefe330000 - 0x000007fefe33e000 	C:\Windows\system32\LPK.dll
+0x000007fefe240000 - 0x000007fefe309000 	C:\Windows\system32\USP10.dll
+0x000007fefc200000 - 0x000007fefc3f4000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.17514_none_fa396087175ac9ac\COMCTL32.dll
+0x000007fefe7d0000 - 0x000007fefe841000 	C:\Windows\system32\SHLWAPI.dll
+0x000007feffe40000 - 0x000007feffe6e000 	C:\Windows\system32\IMM32.DLL
+0x000007fefe4b0000 - 0x000007fefe5b9000 	C:\Windows\system32\MSCTF.dll
+0x0000000071540000 - 0x0000000071611000 	C:\Users\spolak\Documents\shani\AndroidDevelopement\adt-bundle-windows-x86_64-20130219\eclipse\jre\bin\msvcr100.dll
+0x00000000671e0000 - 0x00000000678ff000 	C:\Users\spolak\Documents\shani\AndroidDevelopement\adt-bundle-windows-x86_64-20130219\eclipse\jre\bin\server\jvm.dll
+0x000007fefaaf0000 - 0x000007fefaaf9000 	C:\Windows\system32\WSOCK32.dll
+0x000007fefe460000 - 0x000007fefe4ad000 	C:\Windows\system32\WS2_32.dll
+0x000007feffbd0000 - 0x000007feffbd8000 	C:\Windows\system32\NSI.dll
+0x000007fefa680000 - 0x000007fefa6bb000 	C:\Windows\system32\WINMM.dll
+0x0000000077dd0000 - 0x0000000077dd7000 	C:\Windows\system32\PSAPI.DLL
+0x0000000069510000 - 0x000000006951f000 	C:\Users\spolak\Documents\shani\AndroidDevelopement\adt-bundle-windows-x86_64-20130219\eclipse\jre\bin\verify.dll
+0x0000000067ff0000 - 0x0000000068018000 	C:\Users\spolak\Documents\shani\AndroidDevelopement\adt-bundle-windows-x86_64-20130219\eclipse\jre\bin\java.dll
+0x0000000067fd0000 - 0x0000000067fe5000 	C:\Users\spolak\Documents\shani\AndroidDevelopement\adt-bundle-windows-x86_64-20130219\eclipse\jre\bin\zip.dll
+
+VM Arguments:
+jvm_args: -Dfile.encoding=Cp1255 -Xbootclasspath:C:\Users\spolak\Documents\shani\AndroidDevelopement\adt-bundle-windows-x86_64-20130219\sdk\platforms\android-17\android.jar 
+java_command: org.eclipse.jdt.internal.junit.runner.RemoteTestRunner -version 3 -port 15458 -testLoaderClass org.eclipse.jdt.internal.junit.runner.junit3.JUnit3TestLoader -loaderpluginname org.eclipse.jdt.junit.runtime -test tests.TODOListTest:test1
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=C:/Users/spolak/Documents/shani/AndroidDevelopement/adt-bundle-windows-x86_64-20130219/eclipse/jre/bin/server;C:/Users/spolak/Documents/shani/AndroidDevelopement/adt-bundle-windows-x86_64-20130219/eclipse/jre/bin;C:/Users/spolak/Documents/shani/AndroidDevelopement/adt-bundle-windows-x86_64-20130219/eclipse/jre/lib/amd64;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\ThinkPad\Bluetooth Software\;C:\Program Files\ThinkPad\Bluetooth Software\syswow64;C:\PROGRA~2\F-Secure\ssh;C:\ARC\MetaWare\arc\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\IronPython 2.7;C:\LAD_FW\Testville;C:\ARC\MetaWare\ide\utils;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\Git;C:\Users\spolak\Documents\shani\AndroidDevelopement\adt-bundle-windows-x86_64-20130219\eclipse;
+USERNAME=spolak
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 37 Stepping 2, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 7 , 64 bit Build 7601 Service Pack 1
+
+CPU:total 4 (2 cores per cpu, 2 threads per core) family 6 model 37 stepping 2, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, ht, tsc, tscinvbit
+
+Memory: 4k page, physical 3985052k(863608k free), swap 7968252k(2454796k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (23.7-b01) for windows-amd64 JRE (1.7.0_17-b02), built on Mar  1 2013 03:38:30 by "java_re" with unknown MS VC++:1600
+
+time: Sat Mar 30 20:57:07 2013
+elapsed time: 0 seconds
+
