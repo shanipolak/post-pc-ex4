@@ -1,6 +1,8 @@
 package il.ac.huji.todolist;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class TodoListManagerActivity extends Activity {
 
@@ -121,7 +124,7 @@ public class TodoListManagerActivity extends Activity {
 			String taskName = data.getStringExtra("title");
 			Date dueDate = (Date)data.getSerializableExtra("dueDate");
 			_tododal.insert((ITodoItem)new Task(taskName, dueDate));
-			cursor.requery();//TODO WHEN???
+			cursor.requery();
 			
 		}
 	}

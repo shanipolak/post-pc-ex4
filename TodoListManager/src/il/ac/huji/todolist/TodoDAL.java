@@ -4,6 +4,8 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONObject;
+
 import com.parse.FindCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
@@ -51,7 +53,14 @@ public class TodoDAL {
 		// sqlite
 		ContentValues task = new ContentValues();
 		task.put("title", todoItem.getTitle());
-		task.put("due", todoItem.getDueDate().getTime());
+		if(todoItem.getDueDate() != null)
+		{
+			task.put("due", todoItem.getDueDate().getTime());
+		}
+		else
+		{
+			task.putNull("due");
+		}
 		if(_db.insert("todo", null, task) == -1)
 		{
 			return false;
@@ -60,7 +69,14 @@ public class TodoDAL {
 		// parse
 		ParseObject todoObg = new ParseObject("todo");
 		todoObg.put("title", todoItem.getTitle());
-		todoObg.put("due", todoItem.getDueDate().getTime());
+		if(todoItem.getDueDate() != null)
+		{
+			todoObg.put("due", todoItem.getDueDate().getTime());
+		}
+		else
+		{
+			todoObg.put("due", JSONObject.NULL);
+		}
 		todoObg.saveInBackground();
 		
 		return true;
@@ -68,16 +84,27 @@ public class TodoDAL {
 	
 	public boolean update(ITodoItem todoItem) { 
 		
+		final ITodoItem finalItem = todoItem;
+		
 		if(todoItem == null || todoItem.getTitle() == null)
 		{
 			return false;
 		}
 		
-		final ITodoItem finalItem = todoItem;
 		
 		//sqlite
 		ContentValues task = new ContentValues();
-		task.put("due", todoItem.getDueDate().getTime());
+		
+		if(todoItem.getDueDate() != null)
+		{
+			task.put("due", todoItem.getDueDate().getTime());
+		}
+		else
+		{
+			task.putNull("due");
+		}
+		
+		
 		if(_db.update("todo", task, "title=?", new String[] {todoItem.getTitle()}) == 0)
 		{
 			return false; //can't update an item that doesn't exist
@@ -93,7 +120,8 @@ public class TodoDAL {
 					for(int i=0; i< todoList.size(); i++)
 					{
 						ParseObject parseObj = todoList.get(i);
-						parseObj.put("due", finalItem.getDueDate().getTime());
+						Object dateParse = (finalItem.getDueDate() == null) ? JSONObject.NULL : finalItem.getDueDate().getTime();
+						parseObj.put("due", dateParse);
 						parseObj.saveInBackground();
 					}
 				} 
@@ -110,9 +138,9 @@ public class TodoDAL {
 		{
 			return false;
 		}
-		
+				
 		// sqlite
-		if(_db.delete("todo", "title=? and due=?", new String[] {todoItem.getTitle(), String.valueOf(todoItem.getDueDate().getTime())}) == 0)
+		if(_db.delete("todo", "title=?", new String[] {todoItem.getTitle()}) == 0)
 		{
 			return false;//can't delete an item that doesn't exist
 		}
@@ -120,12 +148,13 @@ public class TodoDAL {
 		//get parse obj	
 		ParseQuery query = new ParseQuery("todo");
 		query.whereEqualTo("title", todoItem.getTitle());
-		query.whereEqualTo("due", todoItem.getDueDate().getTime());
+		
 		query.findInBackground(new FindCallback() {
 		    public void done(List<ParseObject> todoList, ParseException e) {
 		        if (e == null) {
 		            for(int i=0; i< todoList.size(); i++)
 		            {
+		            	(todoList.get(i)).get("title").toString();
 		            	(todoList.get(i)).deleteInBackground();
 		            }
 		        } 
@@ -143,7 +172,15 @@ public class TodoDAL {
 			do {
 
 							String title = cursor.getString(0);
-							Date due = new Date(cursor.getLong(1));
+							Date due;
+							if(!cursor.isNull(1))
+							{
+								due = new Date(cursor.getLong(1));
+							}
+							else
+							{
+								due = null;
+							}
 							allTodos.add((ITodoItem)new Task(title, due));
 
 			} while (cursor.moveToNext());

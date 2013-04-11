@@ -35,14 +35,23 @@ public class TodoListCursorAdapter extends SimpleCursorAdapter{
 		TextView taskName = (TextView)view.findViewById(R.id.txtTodoTitle);
 		TextView taskDueDate = (TextView)view.findViewById(R.id.txtTodoDueDate);
 		
-		Task task = new Task(c.getString(1), new Date(c.getLong(2)));
+		Date date;
+		if(c.isNull(2))
+		{
+			date = null;
+		}
+		else
+		{
+			date = new Date(c.getLong(2));
+		}
+		Task task = new Task(c.getString(1), date);
 		
 		taskName.setText(task.getTitle());
 		taskDueDate.setText(task.getStrDueDate());
 		
 		do
 		{
-			if(task.getday() == -1)
+			if(task.getDueDate() == null)
 			{
 				break;
 			}
